@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@mipmap/prl_mls_loading_cap_5" android:duration="20"/>
+    <item android:drawable="@mipmap/prl_mls_loading_cap_6" android:duration="20"/>
+    <item android:drawable="@mipmap/prl_mls_loading_cap_7" android:duration="20"/>
+    <item android:drawable="@mipmap/prl_mls_loading_cap_8" android:duration="20"/>
+    <item android:drawable="@mipmap/prl_mls_loading_cap_9" android:duration="20"/>
+    <item android:drawable="@mipmap/prl_mls_loading_cap_10" android:duration="20"/>
+    <item android:drawable="@mipmap/prl_mls_loading_cap_11" android:duration="20"/>
+    <item android:drawable="@mipmap/prl_mls_loading_cap_12" android:duration="20"/>
+    <item android:drawable="@mipmap/prl_mls_loading_cap_13" android:duration="20"/>
+    <item android:drawable="@mipmap/prl_mls_loading_cap_14" android:duration="20"/>
+    <item android:drawable="@mipmap/prl_mls_loading_cap_15" android:duration="20"/>
+    <item android:drawable="@mipmap/prl_mls_loading_cap_16" android:duration="20"/>
+    <item android:drawable="@mipmap/prl_mls_loading_cap_17" android:duration="20"/>
+    <item android:drawable="@mipmap/prl_mls_loading_cap_18" android:duration="100"/>
+    <item android:drawable="@mipmap/prl_mls_loading_cap_17" android:duration="20"/>
+    <item android:drawable="@mipmap/prl_mls_loading_cap_16" android:duration="20"/>
+    <item android:drawable="@mipmap/prl_mls_loading_cap_15" android:duration="20"/>
+    <item android:drawable="@mipmap/prl_mls_loading_cap_14" android:duration="20"/>
+    <item android:drawable="@mipmap/prl_mls_loading_cap_13" android:duration="20"/>
+    <item android:drawable="@mipmap/prl_mls_loading_cap_12" android:duration="20"/>
+    <item android:drawable="@mipmap/prl_mls_loading_cap_11" android:duration="20"/>
+    <item android:drawable="@mipmap/prl_mls_loading_cap_10" android:duration="20"/>
+    <item android:drawable="@mipmap/prl_mls_loading_cap_9" android:duration="20"/>
+    <item android:drawable="@mipmap/prl_mls_loading_cap_8" android:duration="20"/>
+    <item android:drawable="@mipmap/prl_mls_loading_cap_7" android:duration="20"/>
+    <item android:drawable="@mipmap/prl_mls_loading_cap_6" android:duration="20"/>
+    <item android:drawable="@mipmap/prl_mls_loading_cap_5" android:duration="20"/>
+</animation-list>

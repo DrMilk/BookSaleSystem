@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <string-array name="food_array">
+            <item>全部美食</item>
+            <item>特价美食</item>
+            <item>团购美食</item>
+            <item>星级美食</item>
+        </string-array>
+    <string-array name="hotel_array">
+        <item>全部酒店</item>
+        <item>特价酒店</item>
+        <item>团购酒店</item>
+        <item>星级酒店</item>
+    </string-array>
+    <string-array name="sex">
+        <item>男</item>
+        <item>女</item>
+        <item>保密</item>
+    </string-array>
+</resources>
