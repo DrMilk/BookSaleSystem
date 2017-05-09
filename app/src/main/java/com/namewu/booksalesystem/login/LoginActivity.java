@@ -16,10 +16,7 @@ import com.namewu.booksalesystem.Utils.SharePreferenceUtil;
 import com.namewu.booksalesystem.Utils.StringLegalUtil;
 import com.namewu.booksalesystem.Utils.T;
 import com.namewu.booksalesystem.customView.XuProcessDialog2;
-import com.namewu.booksalesystem.main.MainActivity;
 import com.namewu.booksalesystem.onlinedata.WZCLUser;
-
-import java.util.ArrayList;
 
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobConfig;
@@ -218,6 +215,7 @@ public class LoginActivity extends Activity implements View.OnClickListener{
     private void userrun() {
         Intent it=new Intent(LoginActivity.this,MainActivity.class);
         startActivity(it);
+        this.finish();
     }
 
     @Override

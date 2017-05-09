@@ -3,8 +3,8 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/yellow_vip</item>
-        <item name="colorPrimaryDark">@color/yellow_vip</item>
+        <item name="colorPrimary">@color/gold_yellow</item>
+        <item name="colorPrimaryDark">@color/gold_yellow</item>
         <item name="colorAccent">@color/blue_black</item>
     </style>
 
@@ -31,7 +31,7 @@
     <style name="title_font">
         <item name="android:textSize">18sp</item>
         <!--<item name="android:textStyle">bold</item>-->
-        <item name="android:textColor">@color/red_vip</item>
+        <item name="android:textColor">@color/white_smoke</item>
     </style>
     <style name="bottom_titil_font">
         <item name="android:textSize">12sp</item>

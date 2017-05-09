@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:orientation="vertical"
+android:layout_height="match_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="106dp"
+    android:elevation="6dp"
+    android:layout_marginBottom="6dp"
+    android:orientation="horizontal"
+    android:layout_marginTop="4dp"
+    android:layout_marginLeft="6dp"
+    android:layout_marginRight="6dp"
+    >
+    <ImageView
+        android:id="@+id/listitem2_img"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/ohd"/>
+
+    <LinearLayout
+        android:paddingLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:theme="@style/style_about"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                android:id="@+id/listitem2_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="故宫"/>
+            <LinearLayout
+                android:layout_alignParentRight="true"
+                android:paddingRight="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:textStyle="italic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="￥"
+                    android:textColor="@color/red"/>
+                <TextView
+                    android:textStyle="italic"
+                    android:id="@+id/listitem2_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="200"
+                    android:textColor="@color/red"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <TextView
+            android:ellipsize="end"
+            android:lines="2"
+            android:theme="@style/style_about_fu"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            android:id="@+id/listitem2_context"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="景点介绍 绝大多数第一次来背景的旅游..."/>
+    </LinearLayout>
+</LinearLayout>
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="1px"
+    android:background="@color/gray"
+    />
+
+</LinearLayout>

@@ -33,11 +33,7 @@ public class SignActivity extends Activity implements View.OnClickListener{
     private EditText edit_password;
     private EditText edit_password_again;
     private EditText edit_name;
-    private EditText edit_address;
-    private EditText edit_qq;
-    private EditText edit_wechat;
     private EditText edit_email;
-    private TextView text_data;
     private Spinner spinner_sex;
     private Button button_ok;
     private Button button_back;
@@ -91,9 +87,6 @@ public class SignActivity extends Activity implements View.OnClickListener{
         String str_password=edit_password.getText().toString().trim();
         String str_password_again=edit_password_again.getText().toString().trim();
         String str_name=edit_name.getText().toString().trim();
-        String str_address=edit_address.getText().toString().trim();
-        String str_qq=edit_qq.getText().toString().trim();
-        String str_wechat=edit_wechat.getText().toString().trim();
         String str_email=edit_email.getText().toString().trim();
         if(!StringLegalUtil.isHaveLength(str_phonenum)){
             edit_phonenum.setError("请输入手机号！");
@@ -125,9 +118,6 @@ public class SignActivity extends Activity implements View.OnClickListener{
             jundge_legal=false;
         }else if(!StringLegalUtil.isCorrectEmail(str_email)){
             edit_email.setError("请输入正确的邮箱号号！");
-            jundge_legal=false;
-        }else if(!StringLegalUtil.isCorrectNumer(str_qq)){
-            edit_email.setError("请输入正确的QQ号！");
             jundge_legal=false;
         }else if(!StringLegalUtil.isSafePassword(str_password)){
             edit_email.setError("输入密码过于简单！");

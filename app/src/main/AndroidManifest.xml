@@ -51,6 +51,7 @@
         </activity>
         <activity android:name=".login.SignActivity"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"  />
+        <activity android:name=".login.MainActivity"/>
     </application>
 
 </manifest>

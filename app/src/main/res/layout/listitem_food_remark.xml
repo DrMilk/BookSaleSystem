@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pink_red_toobar">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/category_selection_gridview_bg">
+        <TextView
+            android:id="@+id/list_food_time"
+            android:layout_gravity="left|center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2017.1.1"
+            android:theme="@style/style_about"
+            android:textSize="14sp"
+            android:textColor="@color/weather_title"
+            android:textStyle="italic"/>
+        <TextView
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="8dp"
+            android:id="@+id/list_food_text"
+            android:ellipsize="end"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="5"
+            android:minLines="1"
+            android:text="除了艺术，798还是科技和美食的聚集地。在这里，现实和理想，时尚和科技，好无缝隙的衔接在一起。这里有《非诚勿扰》里葛优和舒淇        重逢的餐厅，有脱胎自《了不起的盖茨比》的浪漫咖啡馆，有年度极客盛宴GIF2017......当虚拟和现实逐渐融合，创新不再只是创客们的信仰，而是刻进了每一个人对未来的畅想。。。查看全文"
+            android:theme="@style/style_about"
+            android:textColor="@color/mp_gray1"
+            android:textSize="12sp"
+            android:textStyle="normal"/>
+        <TextView
+            android:id="@+id/list_food_id"
+            android:paddingRight="8dp"
+            android:layout_gravity="left|center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="25614464d"
+            android:theme="@style/style_about"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:textStyle="italic|bold"/>
+    </LinearLayout>
+</LinearLayout>
