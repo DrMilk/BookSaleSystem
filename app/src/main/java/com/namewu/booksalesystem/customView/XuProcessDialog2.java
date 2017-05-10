@@ -14,6 +14,7 @@ import com.namewu.booksalesystem.R;
  */
 
 public class XuProcessDialog2 extends Dialog{
+    private String TAG="XuProcessDialog2";
     private AnimationDrawable anim_process;
     private ImageView anim_img;
     @Override
