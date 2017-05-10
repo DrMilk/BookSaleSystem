@@ -17,6 +17,7 @@ import com.namewu.booksalesystem.R;
  */
 
 public class MineFragment extends Fragment implements View.OnClickListener{
+    private String TAG="MineFragment";
     private TextView text_setting;
     private TextView text_personal;
     private TextView text_changepassword;
