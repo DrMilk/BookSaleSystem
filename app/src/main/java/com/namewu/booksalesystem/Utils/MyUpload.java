@@ -42,7 +42,6 @@ import java.io.InputStream;
 
 public class MyUpload {
     private String TAG="MyUpload";
-    private MyUpload myUpload=null;
     private LruCacheUtil lruCacheUtil=new LruCacheUtil();
     private MySdcard wuSdcard=new MySdcard();
     public final String UPLOAD_PIC="picture";
@@ -50,17 +49,10 @@ public class MyUpload {
     public final String bucket_key="keymanword";
     private Handler mhandler=new Handler();
     OSS oss;
-    public MyUpload(){}
-    public  MyUpload getMyUoload(Context context){
-        if(myUpload==null){
-            myUpload=new MyUpload(context);
-        }
-        return myUpload;
-    }
           public MyUpload(Context context){
               String endpoint = "oss-cn-qingdao.aliyuncs.com";
 // 明文设置secret的方式建议只在测试时使用，更多鉴权模式请参考后面的`访问控制`章节
-              OSSCredentialProvider credentialProvider = new OSSPlainTextAKSKCredentialProvider("LTAI1KLlQzR84499","f2kfljQaBg8B33qdpLSvrrNpZzu3x0");
+              OSSCredentialProvider credentialProvider = new OSSPlainTextAKSKCredentialProvider("LTAIt54qe4IyeKHz","nSwBEy9hYwuUDWeNxMrcHsgVz4mBPZ");
               ClientConfiguration conf = new ClientConfiguration();
               conf.setConnectionTimeout(15 * 1000); // 连接超时，默认15秒
               conf.setSocketTimeout(15 * 1000); // socket超时，默认15秒
@@ -137,7 +129,8 @@ public class MyUpload {
     }
     //异步
     public byte[] download_asynchronous(String bucketName, final String objectKey, final ImageView img){
-        final String cache_str=objectKey.split("/")[1];
+        final String cache_str=objectKey.split("/")[1]+"_"+objectKey.split("/")[2];
+        Log.i(TAG,"查谁啊~"+cache_str);
         Bitmap bitmap=wuSdcard.getPicture(MySdcard.pathCacheImage,cache_str);
         if(bitmap!=null){
             img.setImageBitmap(bitmap);
@@ -163,6 +156,142 @@ public class MyUpload {
                     if(bitmap!=null){
                             img.setImageBitmap(bitmap);
                     }
+                byte[] buffer = new byte[2048];
+                int len;
+                try {
+                    while ((len = inputStream.read(buffer)) != -1) {
+                        // 处理下载的数据
+                        Log.i("MyUpload","下载成功了");
+                        outStream.write(buffer, 0, len);
+                        Log.i("MyUpload",outStream.toByteArray().length+"weishaa");
+                    }
+                    Log.i("MyUpload","下载成功了");
+                  //  test(outStream.toByteArray());
+                    outStream.close();
+                    inputStream.close();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            @Override
+            public void onFailure(GetObjectRequest request, ClientException clientExcepion, ServiceException serviceException) {
+                // 请求异常
+                if (clientExcepion != null) {
+                    // 本地异常如网络异常等
+                    clientExcepion.printStackTrace();
+                }
+                if (serviceException != null) {
+                    // 服务异常
+                    Log.e("ErrorCode", serviceException.getErrorCode());
+                    Log.e("RequestId", serviceException.getRequestId());
+                    Log.e("HostId", serviceException.getHostId());
+                    Log.e("RawMessage", serviceException.getRawMessage());
+                }
+            }
+        });
+// task.cancel(); // 可以取消任务
+        Log.i("MyUpload",outStream.toByteArray().length+"youyisile");
+        return outStream.toByteArray();
+// task.waitUntilFinished(); // 如果需要等待任务完成
+    }
+    //异步
+    public byte[] download_asynchronousSys(String bucketName, final String objectKey, final ImageView img){
+        final String cache_str=objectKey.split("/")[1];
+        Bitmap bitmap=wuSdcard.getPicture(MySdcard.pathCacheImage,cache_str);
+        if(bitmap!=null){
+            img.setImageBitmap(bitmap);
+            return null;
+        }
+        Log.i(TAG,"到了吗");
+//        if(lruCacheUtil.getBitmapFromMemCache(objectKey)!=null){
+//            img.setImageBitmap(lruCacheUtil.getBitmapFromMemCache(objectKey));
+//            L.i(TAG,"ok le");
+//            return null;
+//        }
+        //  lruCacheUtil.getBitmapFromMemCache(objectKey);
+        final ByteArrayOutputStream outStream=new ByteArrayOutputStream();
+        GetObjectRequest get = new GetObjectRequest(bucketName,objectKey);
+        OSSAsyncTask task = oss.asyncGetObject(get, new OSSCompletedCallback<GetObjectRequest, GetObjectResult>() {
+            @Override
+            public void onSuccess(GetObjectRequest request, GetObjectResult result) {
+                // 请求成功
+                InputStream inputStream = result.getObjectContent();
+                //  lruCacheUtil.addBitmapToMemoryCache(objectKey,BitmapFactory.decodeStream(inputStream));
+                wuSdcard.savePicture(MySdcard.pathCacheImage,cache_str,BitmapFactory.decodeStream(inputStream));
+                Bitmap bitmap=wuSdcard.getPicture(MySdcard.pathCacheImage,cache_str);
+                if(bitmap!=null){
+                    img.setImageBitmap(bitmap);
+                }
+                byte[] buffer = new byte[2048];
+                int len;
+                try {
+                    while ((len = inputStream.read(buffer)) != -1) {
+                        // 处理下载的数据
+                        Log.i("MyUpload","下载成功了");
+                        outStream.write(buffer, 0, len);
+                        Log.i("MyUpload",outStream.toByteArray().length+"weishaa");
+                    }
+                    Log.i("MyUpload","下载成功了");
+                    //test(outStream.toByteArray());
+                    outStream.close();
+                    inputStream.close();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            @Override
+            public void onFailure(GetObjectRequest request, ClientException clientExcepion, ServiceException serviceException) {
+                // 请求异常
+                if (clientExcepion != null) {
+                    // 本地异常如网络异常等
+                    clientExcepion.printStackTrace();
+                }
+                if (serviceException != null) {
+                    // 服务异常
+                    Log.e("ErrorCode", serviceException.getErrorCode());
+                    Log.e("RequestId", serviceException.getRequestId());
+                    Log.e("HostId", serviceException.getHostId());
+                    Log.e("RawMessage", serviceException.getRawMessage());
+                }
+            }
+        });
+// task.cancel(); // 可以取消任务
+        Log.i("MyUpload",outStream.toByteArray().length+"youyisile");
+        return outStream.toByteArray();
+// task.waitUntilFinished(); // 如果需要等待任务完成
+    }
+    //异步头像
+    public byte[] download_asynchronous_head(String bucketName, final String objectKey, final ImageView img){
+        final String cache_str=objectKey.split("/")[1];
+        Log.i(TAG,"查谁啊~"+cache_str);
+        Bitmap bitmap=wuSdcard.getPicture(MySdcard.pathCacheImage,cache_str);
+        if(bitmap!=null){
+            img.setImageBitmap(BitmapUtil.toRoundBitmap(bitmap));
+            L.i(TAG,"跟新图片了");
+            return null;
+        }
+        Log.i(TAG,"到了吗");
+//        if(lruCacheUtil.getBitmapFromMemCache(objectKey)!=null){
+//            img.setImageBitmap(lruCacheUtil.getBitmapFromMemCache(objectKey));
+//            L.i(TAG,"ok le");
+//            return null;
+//        }
+        //  lruCacheUtil.getBitmapFromMemCache(objectKey);
+        final ByteArrayOutputStream outStream=new ByteArrayOutputStream();
+        GetObjectRequest get = new GetObjectRequest(bucketName,objectKey);
+        OSSAsyncTask task = oss.asyncGetObject(get, new OSSCompletedCallback<GetObjectRequest, GetObjectResult>() {
+            @Override
+            public void onSuccess(GetObjectRequest request, GetObjectResult result) {
+                // 请求成功
+                InputStream inputStream = result.getObjectContent();
+                //  lruCacheUtil.addBitmapToMemoryCache(objectKey,BitmapFactory.decodeStream(inputStream));
+                wuSdcard.savePicture(MySdcard.pathCacheImage,cache_str,BitmapFactory.decodeStream(inputStream));
+                Bitmap bitmap=wuSdcard.getPicture(MySdcard.pathCacheImage,cache_str);
+                if(bitmap!=null){
+                    img.setImageBitmap(BitmapUtil.toRoundBitmap(bitmap));
+                }
                 byte[] buffer = new byte[2048];
                 int len;
                 try {

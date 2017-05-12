@@ -52,6 +52,9 @@
         <activity android:name=".login.SignActivity"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"  />
         <activity android:name=".login.MainActivity"/>
+        <activity android:name=".mine.SettingActivity"/>
+        <activity android:name=".talk.Writetreememory"/>
+        <activity android:name=".main.BookDetailActivity"/>
     </application>
 
 </manifest>

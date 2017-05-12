@@ -61,7 +61,7 @@ public class BookListAdatapter extends BaseAdapter{
         wuViewHolder.text_title.setText(list_data.get(position).getTitle());
         wuViewHolder.text_context.setText(list_data.get(position).getContext());
         wuViewHolder.text_price.setText(list_data.get(position).getPrice()+"");
-        myUpload.download_asynchronous("yuetiantravel","listimg/"+list_data.get(position).getObjectId(),wuViewHolder.img);
+        myUpload.download_asynchronousSys("booksalesystem","listimg/"+list_data.get(position).getObjectId(),wuViewHolder.img);
         return convertView;
     }
 

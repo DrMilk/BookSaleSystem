@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="36dp"
         android:orientation="horizontal"
-        android:background="@color/pink_red_toobar">
+        android:background="@color/gold_yellow">
         <Button
             android:id="@+id/foot_button"
             android:background="@drawable/button_bg"

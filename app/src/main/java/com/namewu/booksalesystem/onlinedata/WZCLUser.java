@@ -16,6 +16,7 @@ public class WZCLUser extends BmobUser {
     private String qq;
     private String passwordshow;
     private ArrayList<String> list_collect;
+    private ArrayList<String> list_mine;
     public WZCLUser(){}
 
     public String getSex() {
@@ -56,5 +57,13 @@ public class WZCLUser extends BmobUser {
 
     public void setList_collect(ArrayList<String> list_collect) {
         this.list_collect = list_collect;
+    }
+
+    public ArrayList<String> getList_mine() {
+        return list_mine;
+    }
+
+    public void setList_mine(ArrayList<String> list_mine) {
+        this.list_mine = list_mine;
     }
 }

@@ -11,18 +11,25 @@ import android.widget.ImageView;
 
 
 import com.namewu.booksalesystem.R;
+import com.namewu.booksalesystem.Utils.L;
 import com.namewu.booksalesystem.Utils.MySdcard;
 import com.namewu.booksalesystem.Utils.SharePreferenceUtil;
 import com.namewu.booksalesystem.Utils.StringLegalUtil;
 import com.namewu.booksalesystem.Utils.T;
 import com.namewu.booksalesystem.customView.XuProcessDialog2;
+import com.namewu.booksalesystem.onlinedata.Alldata;
+import com.namewu.booksalesystem.onlinedata.Bookdata;
+import com.namewu.booksalesystem.onlinedata.Talkdata;
 import com.namewu.booksalesystem.onlinedata.WZCLUser;
+
+import java.util.ArrayList;
 
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobConfig;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.LogInListener;
+import cn.bmob.v3.listener.SaveListener;
 
 
 /**
@@ -129,14 +136,37 @@ public class LoginActivity extends Activity implements View.OnClickListener{
         }
     }
 
-//    private void uploadtest() {
-//        Fooddata fooddata=new Fooddata("水煮肉片","水煮肉片灰常好吃",true,97,4,new ArrayList<String>());
+    private void uploadtest() {
+//        Bookdata fooddata=new Bookdata("西游记","传统文化四大名著",true,97,4,new ArrayList<String>());
 //        fooddata.save(new SaveListener<String>() {
 //            @Override
 //            public void done(String s, BmobException e) {
-//
+//                if(e==null){
+//                    L.i(TAG,"成功上传更新");
+//                }
 //            }
 //        });
+        Alldata alldata=new Alldata();
+        ArrayList<String> list=new ArrayList<>();
+        list.add("7wFr555D");
+        list.add("nNi52223");
+        list.add("Fm0S111i");
+        list.add("e26247a93e");
+        alldata.setList_book(list);
+        alldata.setList_talk(list);
+        alldata.save(new SaveListener<String>() {
+            @Override
+            public void done(String s, BmobException e) {
+
+            }
+        });
+        Talkdata talkdata=new Talkdata("18249028972","这本书还是挺好挺实惠的",0,4,"哈尔滨");
+        talkdata.save(new SaveListener<String>() {
+            @Override
+            public void done(String s, BmobException e) {
+
+            }
+        });
 //        Hoteldata hoteldata=new Hoteldata("易蓝大酒店","地下创业园楼下快来吧",true,180,2,new ArrayList<String>());
 //        hoteldata.save(new SaveListener<String>() {
 //            @Override
@@ -181,7 +211,7 @@ public class LoginActivity extends Activity implements View.OnClickListener{
 //                }
 //            }
 //        });
-//    }
+    }
 
     private void mbmobinitdata() {
         Bmob.initialize(this, "f2cbab816413a772b63041885cff816b");

@@ -28,6 +28,7 @@ import com.namewu.booksalesystem.customView.XuVoiceDialog;
 import com.namewu.booksalesystem.main.FirstTabFragment;
 import com.namewu.booksalesystem.main.FirstTabFragmentProcess;
 import com.namewu.booksalesystem.mine.MineFragment;
+import com.namewu.booksalesystem.onlinedata.Alldata;
 import com.namewu.booksalesystem.shoppingcar.ShoppingCarFragment;
 import com.namewu.booksalesystem.species.KindFragment;
 import com.namewu.booksalesystem.talk.TalkFragment;
@@ -78,6 +79,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private HashMap<String, String> mIatResults = new LinkedHashMap<String, String>();
     private int count_speech = 0;
     private String key;
+    private Alldata alldata;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -144,39 +146,41 @@ public class MainActivity extends Activity implements View.OnClickListener {
 //        });
     }
 
-    private void initFragment() {
-        fragment_process=new FirstTabFragmentProcess();
-        fragment_mine=new MineFragment();
-        fm=getFragmentManager();
-        ft=fm.beginTransaction();
-        if(fragment_firstab!=null)
-            ft.replace(R.id.activity_main_main,fragment_firstab);
-        else
-            ft.replace(R.id.activity_main_main,fragment_process);
-        ft.commit();
-        fragment_firstab = new FirstTabFragment();
-        fragment_species = new KindFragment();
-        fragment_talk = new TalkFragment();
-        fragment_shop = new ShoppingCarFragment();
-    }
 //    private void initFragment() {
-//        fragment_process = new FirstTabFragmentProcess();
-//        BmobQuery<Alldata> query = new BmobQuery<Alldata>();
-//        query.getObject("7c36329337", new QueryListener<Alldata>() {
-//
-//            @Override
-//            public void done(Alldata object, BmobException e) {
-//                if (e == null) {
-//                    alldata = object;
-//                    img1.setImageResource(R.mipmap.host_index_cate_icon_s);
-//                    fragment_firstab = new FirstTabFragment();
-//                    Bundle bundle = new Bundle();
-//                    bundle.putStringArrayList("data", alldata.getList_spot());
-//                    fragment_firstab.setArguments(bundle);
-//                    fragment_hotel = new HotelFragment();
-//                    bundle = new Bundle();
-//                    bundle.putStringArrayList("data", alldata.getList_hotel());
-//                    fragment_hotel.setArguments(bundle);
+//        fragment_process=new FirstTabFragmentProcess();
+//        fragment_mine=new MineFragment();
+//        fm=getFragmentManager();
+//        ft=fm.beginTransaction();
+//        if(fragment_firstab!=null)
+//            ft.replace(R.id.activity_main_main,fragment_firstab);
+//        else
+//            ft.replace(R.id.activity_main_main,fragment_process);
+//        ft.commit();
+//        fragment_firstab = new FirstTabFragment();
+//        fragment_species = new KindFragment();
+//        fragment_talk = new TalkFragment();
+//        fragment_shop = new ShoppingCarFragment();
+//    }
+    private void initFragment() {
+        fragment_process = new FirstTabFragmentProcess();
+        BmobQuery<Alldata> query = new BmobQuery<Alldata>();
+        query.getObject("1dc6db1b23", new QueryListener<Alldata>() {
+
+            @Override
+            public void done(Alldata object, BmobException e) {
+                if (e == null) {
+                    alldata = object;
+                    img1.setImageResource(R.mipmap.host_index_cate_icon_s);
+                    fragment_firstab = new FirstTabFragment();
+                    Bundle bundle = new Bundle();
+                    bundle.putStringArrayList("data", alldata.getList_book());
+                    fragment_firstab.setArguments(bundle);
+                    fragment_talk=new TalkFragment();
+                    bundle = new Bundle();
+                    bundle.putStringArrayList("data", alldata.getList_talk());
+                    fragment_talk.setArguments(bundle);
+                    fragment_species=new KindFragment();
+                    fragment_shop=new ShoppingCarFragment();
 //                    fragment_food = new FoodFragment();
 //                    bundle = new Bundle();
 //                    bundle.putStringArrayList("data", alldata.getList_food());
@@ -185,23 +189,23 @@ public class MainActivity extends Activity implements View.OnClickListener {
 //                    bundle = new Bundle();
 //                    bundle.putStringArrayList("data", alldata.getList_travel());
 //                    fragment_travel.setArguments(bundle);
-//                    updataChangeFragment();
-//                    L.i(TAG, "all" + "下载成功");
-//                } else {
-//                    L.i(TAG, "all" + "下载失败");
-//                }
-//            }
-//
-//        });
-//        fragment_mine = new MineFragment();
-//        fm = getFragmentManager();
-//        ft = fm.beginTransaction();
-//        if (fragment_firstab != null)
-//            ft.replace(R.id.activity_main_main, fragment_firstab);
-//        else
-//            ft.replace(R.id.activity_main_main, fragment_process);
-//        ft.commit();
-//    }
+                    updataChangeFragment();
+                    L.i(TAG, "all" + "下载成功");
+                } else {
+                    L.i(TAG, "all" + "下载失败");
+                }
+            }
+
+        });
+        fragment_mine = new MineFragment();
+        fm = getFragmentManager();
+        ft = fm.beginTransaction();
+        if (fragment_firstab != null)
+            ft.replace(R.id.activity_main_main, fragment_firstab);
+        else
+            ft.replace(R.id.activity_main_main, fragment_process);
+        ft.commit();
+    }
 
     @Override
     public void onClick(View v) {
@@ -292,61 +296,61 @@ public class MainActivity extends Activity implements View.OnClickListener {
         img5.setImageResource(R.mipmap.host_index_mine_icon);
     }
 
-//    public void updataChangeFragment() {
-//        switch (tab_num) {
-//            case 0:
-//                ft = fm.beginTransaction();
-//                tab_num = 0;
-//                if (fragment_firstab != null)
-//                    ft.replace(R.id.activity_main_main, fragment_firstab);
-//                else {
-//                    ft.replace(R.id.activity_main_main, fragment_process);
-//                    fragment_process.updataTitle("景点列表");
-//                }
-//                ft.commit();
-//                break;
-//            case 1:
-//                ft = fm.beginTransaction();
-//                tab_num = 1;
-//                if (fragment_travel != null)
-//                    ft.replace(R.id.activity_main_main, fragment_travel);
-//                else {
-//                    ft.replace(R.id.activity_main_main, fragment_process);
-//                    fragment_process.updataTitle("游记");
-//                }
-//                ft.commit();
-//                break;
-//            case 2:
-//                tab_num = 2;
-//                if (fragment_food != null)
-//                    ft.replace(R.id.activity_main_main, fragment_food);
-//                else {
-//                    ft.replace(R.id.activity_main_main, fragment_process);
-//                    fragment_process.updataTitle("美食");
-//                }
-//                ft.commit();
-//                break;
-//            case 3:
-//                ft = fm.beginTransaction();
-//                tab_num = 3;
-//                if (fragment_hotel != null)
-//                    ft.replace(R.id.activity_main_main, fragment_hotel);
-//                else {
-//                    ft.replace(R.id.activity_main_main, fragment_process);
-//                    fragment_process.updataTitle("酒店");
-//                }
-//                ft.commit();
-//                break;
-//            case 4:
-//                ft = fm.beginTransaction();
-//                tab_num = 4;
-//                if (fragment_mine != null)
-//                    ft.replace(R.id.activity_main_main, fragment_mine);
-//                else
-//                    ft.replace(R.id.activity_main_main, fragment_process);
-//                ft.commit();
-//                break;
-//        }
-//    }
+    public void updataChangeFragment() {
+        switch (tab_num) {
+            case 0:
+                ft = fm.beginTransaction();
+                tab_num = 0;
+                if (fragment_firstab != null)
+                    ft.replace(R.id.activity_main_main, fragment_firstab);
+                else {
+                    ft.replace(R.id.activity_main_main, fragment_process);
+                    fragment_process.updataTitle("景点列表");
+                }
+                ft.commit();
+                break;
+            case 1:
+                ft = fm.beginTransaction();
+                tab_num = 1;
+                if (fragment_species != null)
+                    ft.replace(R.id.activity_main_main, fragment_species);
+                else {
+                    ft.replace(R.id.activity_main_main, fragment_process);
+                    fragment_process.updataTitle("游记");
+                }
+                ft.commit();
+                break;
+            case 2:
+                tab_num = 2;
+                if (fragment_talk != null)
+                    ft.replace(R.id.activity_main_main, fragment_talk);
+                else {
+                    ft.replace(R.id.activity_main_main, fragment_process);
+                    fragment_process.updataTitle("美食");
+                }
+                ft.commit();
+                break;
+            case 3:
+                ft = fm.beginTransaction();
+                tab_num = 3;
+                if (fragment_shop != null)
+                    ft.replace(R.id.activity_main_main, fragment_shop);
+                else {
+                    ft.replace(R.id.activity_main_main, fragment_process);
+                    fragment_process.updataTitle("酒店");
+                }
+                ft.commit();
+                break;
+            case 4:
+                ft = fm.beginTransaction();
+                tab_num = 4;
+                if (fragment_mine != null)
+                    ft.replace(R.id.activity_main_main, fragment_mine);
+                else
+                    ft.replace(R.id.activity_main_main, fragment_process);
+                ft.commit();
+                break;
+        }
+    }
 
 }

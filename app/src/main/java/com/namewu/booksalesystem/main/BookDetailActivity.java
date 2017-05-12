@@ -111,7 +111,7 @@ public class BookDetailActivity extends Activity implements View.OnClickListener
         button_remark= (Button) footview.findViewById(R.id.foot_button);
         edit_remark= (EditText) footview.findViewById(R.id.foot_edittext);
         img= (ImageView) headview.findViewById(R.id.detail_head_img);
-        myUpload.download_asynchronous("yuetiantravel","listimg/"+id,img);
+        myUpload.download_asynchronousSys("booksalesystem","listimg/"+id,img);
         button_remark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
