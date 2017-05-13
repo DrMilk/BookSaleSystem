@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import com.namewu.booksalesystem.R;
 import com.namewu.booksalesystem.Utils.L;
@@ -40,6 +41,7 @@ public class TalkFragment extends Fragment{
     private Context mcontext;
     private ArrayList<String> list_str;
     private WangContextRecyclerViewAdapter mcontextAdapter;
+    private TextView text_add;
     private Handler handler=new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -94,6 +96,14 @@ public class TalkFragment extends Fragment{
         View view=inflater.inflate(R.layout.fragment_talk,null);
         mcontext=getActivity();
         listView= (RecyclerView) view.findViewById(R.id.list_context_main);
+        text_add= (TextView) view.findViewById(R.id.text_add);
+        text_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it=new Intent(getActivity(),Writetreememory.class);
+                startActivity(it);
+            }
+        });
 //        list_hotel.add(new Hoteldata("上海龙之梦大酒店","行政套房(大床)",true,1959));
 //        list_hotel.add(new Hoteldata("如家酒店","行政套房(大床)",true,364));
 //        list_hotel.add(new Hoteldata("万达酒店","行政套房(大床)，8点人民广场准时出发",true,3626));
