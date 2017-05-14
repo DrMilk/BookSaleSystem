@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -16,4 +16,53 @@
             android:layout_gravity="center"
             android:theme="@style/title_font" />
     </RelativeLayout>
-</LinearLayout>
+    <ListView
+        android:id="@+id/listview_buycar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@mipmap/bg_for_welcome_area"
+        android:layout_alignParentBottom="true">
+        <ImageView
+            android:id="@+id/fragment_shop_allcheck"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/pay_and_delivery_fast_checked"/>
+        <TextView
+            android:id="@+id/fragment_shop_temp1"
+            android:layout_toRightOf="@id/fragment_shop_allcheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white_smoke"
+            android:text="全选"/>
+        <TextView
+            android:id="@+id/fragment_shop_temp2"
+            android:layout_toRightOf="@id/fragment_shop_temp1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white_smoke"
+            android:text="合计：￥"/>
+        <TextView
+            android:id="@+id/fragment_shop_allmoney"
+            android:layout_toRightOf="@id/fragment_shop_temp2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white_smoke"
+            android:text="34.50"/>
+        <TextView
+            android:layout_alignParentRight="true"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:background="@color/pink_red_toobar"
+            android:gravity="center"
+            android:textColor="@color/white_smoke"
+            android:text="去结算"/>
+    </RelativeLayout>
+</RelativeLayout>

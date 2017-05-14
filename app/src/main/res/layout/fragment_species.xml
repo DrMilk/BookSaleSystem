@@ -16,4 +16,19 @@
             android:layout_gravity="center"
             android:theme="@style/title_font" />
     </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <ListView
+            android:id="@+id/species_listview"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"/>
+        <GridView
+            android:id="@+id/species_gridview"
+            android:numColumns="2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
 </LinearLayout>
