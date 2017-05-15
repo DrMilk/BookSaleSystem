@@ -17,9 +17,11 @@
             android:theme="@style/title_font" />
     </RelativeLayout>
     <ListView
+        android:layout_marginTop="50dp"
         android:id="@+id/listview_buycar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:divider="@null"/>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -34,6 +36,7 @@
             android:src="@mipmap/pay_and_delivery_fast_checked"/>
         <TextView
             android:id="@+id/fragment_shop_temp1"
+            android:padding="6dp"
             android:layout_toRightOf="@id/fragment_shop_allcheck"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -47,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:textColor="@color/white_smoke"
-            android:text="合计：￥"/>
+            android:text="合计："/>
         <TextView
             android:id="@+id/fragment_shop_allmoney"
             android:layout_toRightOf="@id/fragment_shop_temp2"
@@ -55,14 +58,29 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:textColor="@color/white_smoke"
-            android:text="34.50"/>
-        <TextView
+            android:textStyle="italic"
+            android:text="￥34.50"/>
+        <RelativeLayout
             android:layout_alignParentRight="true"
             android:layout_width="80dp"
             android:layout_height="match_parent"
-            android:background="@color/pink_red_toobar"
-            android:gravity="center"
-            android:textColor="@color/white_smoke"
-            android:text="去结算"/>
+            android:background="@color/pink_red_toobar">
+            <TextView
+                android:id="@+id/fragment_shop_pay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="@color/white_smoke"
+                android:text="去结算"/>
+            <TextView
+                android:id="@+id/fragment_shop_paynum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white_smoke"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/fragment_shop_pay"
+                android:textSize="10sp"
+                android:text="(0)"/>
+        </RelativeLayout>
     </RelativeLayout>
 </RelativeLayout>

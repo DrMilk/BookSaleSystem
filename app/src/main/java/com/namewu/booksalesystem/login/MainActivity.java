@@ -253,7 +253,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 } else {
                     ft.replace(R.id.activity_main_main, fragment_process);
                     L.i(TAG, "美食");
-                    fragment_process.updataTitle("动态");
+                    fragment_process.updataTitle("发现");
                 }
                 ft.commit();
                 break;
@@ -305,7 +305,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     ft.replace(R.id.activity_main_main, fragment_firstab);
                 else {
                     ft.replace(R.id.activity_main_main, fragment_process);
-                    fragment_process.updataTitle("景点列表");
+                    fragment_process.updataTitle("首页");
                 }
                 ft.commit();
                 break;
@@ -316,7 +316,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     ft.replace(R.id.activity_main_main, fragment_species);
                 else {
                     ft.replace(R.id.activity_main_main, fragment_process);
-                    fragment_process.updataTitle("游记");
+                    fragment_process.updataTitle("分类");
                 }
                 ft.commit();
                 break;
@@ -326,7 +326,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     ft.replace(R.id.activity_main_main, fragment_talk);
                 else {
                     ft.replace(R.id.activity_main_main, fragment_process);
-                    fragment_process.updataTitle("美食");
+                    fragment_process.updataTitle("发现");
                 }
                 ft.commit();
                 break;
@@ -337,7 +337,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     ft.replace(R.id.activity_main_main, fragment_shop);
                 else {
                     ft.replace(R.id.activity_main_main, fragment_process);
-                    fragment_process.updataTitle("酒店");
+                    fragment_process.updataTitle("购物车");
                 }
                 ft.commit();
                 break;

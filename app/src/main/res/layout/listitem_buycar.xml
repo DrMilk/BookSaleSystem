@@ -3,4 +3,86 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <RelativeLayout
+        android:background="@drawable/category_selection_gridview_bg"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginBottom="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+        <ImageView
+            android:id="@+id/listitem_buycar_check"
+            android:layout_width="26dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:paddingLeft="10dp"
+            android:src="@mipmap/pay_and_delivery_fast_checked"/>
+        <ImageView
+            android:id="@+id/listitem_buycar_img"
+            android:layout_toRightOf="@id/listitem_buycar_check"
+            android:layout_margin="10dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@mipmap/ohd"/>
+        <LinearLayout
+            android:layout_toRightOf="@id/listitem_buycar_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:id="@+id/listitem_buycar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="红苹果味 冰红茶"/>
+            <TextView
+                android:id="@+id/listitem_buycar_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="￥ 3.00"/>
+            <LinearLayout
+                android:layout_width="72dp"
+                android:layout_height="24dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/listitem_buycar_reduce"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@mipmap/shopping_cart_product_num_reduce_disable"/>
+                <TextView
+                    android:id="@+id/listitem_buycar_num"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:gravity="center"
+                    android:text="1"
+                    android:background="@mipmap/shopping_cart_product_num_edit" />
+                <ImageView
+                    android:id="@+id/listitem_buycar_add"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@mipmap/shopping_cart_product_num_add"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginBottom="6dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/red"
+                android:text="小计："/>
+            <TextView
+                android:id="@+id/listitem_buycar_smallmoney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/red"
+                android:textStyle="italic"
+                android:text="￥4.50"/>
+        </LinearLayout>
+    </RelativeLayout>
 </LinearLayout>
