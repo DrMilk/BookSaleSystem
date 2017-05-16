@@ -89,19 +89,44 @@ public class ShoppingCarFragment extends Fragment implements View.OnClickListene
             }
         });
         listview.setAdapter(buycarlistAdapter);
+        int paycount=0;
+        if(all_status){
+            int allm=0;
+            for(int i=0;i<listdata.size();i++){
+                if(buycarlistAdapter.getListcheck().get(i))
+                    allm=allm+buycarlistAdapter.getListnum().get(i)*listdata.get(i).getPrice();
+                paycount++;
+                L.i(TAG,"allm"+allm);
+            }
+            text_num.setText("("+paycount+")");
+            allmoney.setText(allm+"");
+        }else {
+            allmoney.setText("0");
+            text_num.setText("("+paycount+")");
+        }
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.fragment_shop_allcheck:
+                int paycount=0;
+                ArrayList<Boolean> listcheck=buycarlistAdapter.getListcheck();
                 if(all_status){
                     all_status=false;
                     imgpaycheck.setImageResource(R.mipmap.pay_and_delivery_unchecked);
+                    for (int i=0;i<listcheck.size();i++){
+                        listcheck.set(i,false);
+                    }
+                    text_num.setText("("+paycount+")");
                     allmoney.setText("0");
                 }else {
                     all_status=true;
                     imgpaycheck.setImageResource(R.mipmap.pay_and_delivery_fast_checked);
+                    for (int i=0;i<listcheck.size();i++){
+                        listcheck.set(i,true);
+                        paycount++;
+                    }
                     int allm=0;
                     for(int i=0;i<listdata.size();i++){
                         if(buycarlistAdapter.getListcheck().get(i))
@@ -109,7 +134,9 @@ public class ShoppingCarFragment extends Fragment implements View.OnClickListene
                         L.i(TAG,"allm"+allm);
                     }
                     allmoney.setText(allm+"");
-                } ;break;
+                    text_num.setText("("+paycount+")");
+                }
+                buycarlistAdapter.notifyDataSetChanged();break;
         }
     }
 }

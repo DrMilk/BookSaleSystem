@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.iflytek.thridparty.A;
+
 import com.namewu.booksalesystem.R;
 import com.namewu.booksalesystem.Utils.MyUpload;
 import com.namewu.booksalesystem.onlinedata.Bookdata;

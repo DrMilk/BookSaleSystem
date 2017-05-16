@@ -1,15 +1,19 @@
 package com.namewu.booksalesystem.login;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
 import android.media.SoundPool;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -170,7 +174,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
             public void done(Alldata object, BmobException e) {
                 if (e == null) {
                     alldata = object;
-                    img1.setImageResource(R.mipmap.host_index_cate_icon_s);
                     fragment_firstab = new FirstTabFragment();
                     Bundle bundle = new Bundle();
                     bundle.putStringArrayList("data", alldata.getList_book());
@@ -207,11 +210,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
         ft.commit();
     }
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.activity_main_firsttab:
                 initBottomView();
+                img1.setImageTintList( getResources().getColorStateList(R.color.gold_yellow));
+                img1.setImageResource(R.mipmap.main_bottom_tab_home_focus);
                 ft = fm.beginTransaction();
                 tab_num = 0;
                 if (fragment_firstab != null) {
@@ -227,7 +233,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.activity_main_travel:
                 initBottomView();
-                img2.setImageResource(R.mipmap.host_index_cart_icon_s);
+                img2.setImageTintList( getResources().getColorStateList(R.color.gold_yellow));
+                img2.setImageResource(R.mipmap.main_bottom_tab_category_focus);
                 ft = fm.beginTransaction();
                 tab_num = 1;
                 if (fragment_species != null) {
@@ -242,7 +249,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.activity_main_food:
                 initBottomView();
-                img3.setImageResource(R.mipmap.host_index_cart_icon_s_food5);
+                img3.setImageTintList( getResources().getColorStateList(R.color.gold_yellow));
+                img3.setImageResource(R.mipmap.main_bottom_tab_faxian_focus);
                 ft = fm.beginTransaction();
                 tab_num = 2;
                 L.i(TAG, "美食1");
@@ -259,7 +267,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.activity_main_hotel:
                 initBottomView();
-                img4.setImageResource(R.mipmap.host_index_home_icon_s);
+                img4.setImageTintList( getResources().getColorStateList(R.color.gold_yellow));
+                img4.setImageResource(R.mipmap.main_bottom_tab_cart_focus);
                 ft = fm.beginTransaction();
                 tab_num = 3;
                 if (fragment_shop != null) {
@@ -274,7 +283,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.activity_main_mine:
                 initBottomView();
-                img5.setImageResource(R.mipmap.host_index_mine_icon_s);
+//                Drawable icon = getResources().getDrawable(R.mipmap.main_bottom_tab_personal_focus);
+//                Drawable tintIcon = DrawableCompat.wrap(icon);
+//                DrawableCompat.setTintList(tintIcon, getResources().getColorStateList(R.color.gold_yellow));
+//                img5.setImageDrawable(tintIcon);
+                img5.setImageTintList( getResources().getColorStateList(R.color.gold_yellow));
+                img5.setImageResource(R.mipmap.main_bottom_tab_personal_focus);
                 ft = fm.beginTransaction();
                 tab_num = 4;
                 if (fragment_mine != null) {
@@ -288,12 +302,18 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
     }
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private void initBottomView() {
-        img2.setImageResource(R.mipmap.host_index_cart_icon);
-        img1.setImageResource(R.mipmap.host_index_cate_icon);
-        img3.setImageResource(R.mipmap.host_index_cart_icon_s_food5);
-        img4.setImageResource(R.mipmap.host_index_home_icon);
-        img5.setImageResource(R.mipmap.host_index_mine_icon);
+        img1.setImageResource(R.mipmap.main_bottom_tab_home_focus);
+        img2.setImageResource(R.mipmap.main_bottom_tab_category_focus);
+        img3.setImageResource(R.mipmap.main_bottom_tab_faxian_focus);
+        img4.setImageResource(R.mipmap.main_bottom_tab_cart_focus);
+        img5.setImageResource(R.mipmap.main_bottom_tab_personal_focus);
+        img1.setImageTintList( getResources().getColorStateList(R.color.white));
+        img2.setImageTintList( getResources().getColorStateList(R.color.white));
+        img3.setImageTintList( getResources().getColorStateList(R.color.white));
+        img4.setImageTintList( getResources().getColorStateList(R.color.white));
+        img5.setImageTintList( getResources().getColorStateList(R.color.white));
     }
 
     public void updataChangeFragment() {
