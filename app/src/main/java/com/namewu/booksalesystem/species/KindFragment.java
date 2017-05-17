@@ -19,6 +19,7 @@ import java.util.ArrayList;
  */
 
 public class KindFragment extends Fragment{
+    private String TAG="KindFragment";
     private ListView listView;
     private GridView gridView;
     private ArrayList<String> list_one;
