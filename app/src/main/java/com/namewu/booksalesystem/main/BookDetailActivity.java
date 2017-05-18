@@ -18,6 +18,8 @@ import android.widget.TextView;
 
 
 import com.namewu.booksalesystem.R;
+import com.namewu.booksalesystem.Utils.L;
+import com.namewu.booksalesystem.Utils.MySdcard;
 import com.namewu.booksalesystem.Utils.MyUpload;
 import com.namewu.booksalesystem.Utils.T;
 import com.namewu.booksalesystem.customView.PopupWindowShare;
@@ -26,6 +28,13 @@ import com.namewu.booksalesystem.onlinedata.Bookdata;
 import com.namewu.booksalesystem.onlinedata.Remakdata;
 import com.namewu.booksalesystem.onlinedata.WZCLUser;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import cn.bmob.v3.BmobQuery;
@@ -40,6 +49,8 @@ import cn.bmob.v3.listener.UpdateListener;
  */
 
 public class BookDetailActivity extends Activity implements View.OnClickListener{
+    private String TAG="BookDetailActivity";
+    private Button button_addshopcar;
     private TextView title;
     private TextView context;
     private TextView price;
@@ -60,6 +71,7 @@ public class BookDetailActivity extends Activity implements View.OnClickListener
     private LinearLayout back_line;
     private TextView img_share;
     private PopupWindowShare mPopupWindows;
+    private ArrayList<String> list_read;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,6 +120,7 @@ public class BookDetailActivity extends Activity implements View.OnClickListener
         LayoutInflater inflater=LayoutInflater.from(mcontext);
         View headview=inflater.inflate(R.layout.detail_head,null);
         View footview=inflater.inflate(R.layout.detail_foot,null);
+        button_addshopcar= (Button) headview.findViewById(R.id.add_shop);
         button_remark= (Button) footview.findViewById(R.id.foot_button);
         edit_remark= (EditText) footview.findViewById(R.id.foot_edittext);
         img= (ImageView) headview.findViewById(R.id.detail_head_img);
@@ -141,6 +154,41 @@ public class BookDetailActivity extends Activity implements View.OnClickListener
                             }
                         }
                     });
+                }
+            }
+        });
+        button_addshopcar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                File file=new File(MySdcard.pathsearchtxt+File.separator+"shop.txt");
+                if(!file.exists()){
+                    try {
+                        file.createNewFile();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                try {
+                    FileInputStream fis=new FileInputStream(file);
+                    ObjectInputStream ois=new ObjectInputStream(fis);
+                    list_read= (ArrayList<String>) ois.readObject();
+                    ois.close();
+                    fis.close();
+                    if(list_read==null||list_read.size()==0){
+                        list_read=new ArrayList<String>();
+                    }
+                    list_read.add(id);
+                    L.i(TAG,id);
+                    L.i(TAG,list_read.size()+"");
+                    FileOutputStream fos=new FileOutputStream(file);
+                    ObjectOutputStream oos=new ObjectOutputStream(fos);
+                    oos.writeObject(list_read);
+                    oos.flush();
+                    oos.close();
+                    fos.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    L.i(TAG,e.toString());
                 }
             }
         });

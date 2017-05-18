@@ -57,23 +57,14 @@
             android:textSize="16sp"
             android:textStyle="italic"
             android:textColor="@color/context_text"
-            android:text="1949年，上海的土地面积仅仅为636平方公里。1958年，江苏省的嘉定、宝
-                    山、上海、松江、金山、川沙、南汇、奉贤、青浦、崇明10个县划归上海，使上海市的辖区
-                    范围扩大到5910平方公里，几乎是1949年的10倍。2006年末，上海总面积为6340.5平方公里
-                    ，其中陆地面积6218.65平方公里，长江口水域面积1107平方公里，滩涂面积376平方公里[2
-                    6]  。全国第二次土地调查中，全市土地调查总面积为8359.12平方公里（1253.87万亩）。
-                    截止到2009年12月31日，全市耕地1897.59平方公里（284.64万亩）；园地179.89平方公里
-                    （26.98万亩）；林地506.05平方公里（75.91万亩）；草地16.41平方公里（2.46万亩）；
-                    城镇村及工矿用地：2557.94平方公里（383.69万亩）；交通运输用地：402.17平方公里（
-                    60.33万亩）；水域及水利设施用地：2749.17平方公里（412.38万亩）；其他土地49.90平
-                    方公里（7.49万亩）"/>
+            android:text="19"/>
         <Button
             android:id="@+id/add_shop"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_bg"
+            android:layout_height="30dp"
+            android:background="@drawable/button_bg_red"
             android:textColor="@color/white_smoke"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:text="加入购物车"/>
     </LinearLayout>
     <LinearLayout

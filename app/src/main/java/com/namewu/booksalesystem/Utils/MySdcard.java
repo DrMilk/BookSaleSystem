@@ -37,10 +37,10 @@ public  class MySdcard {
 //            if (!dir.exists()) {
 //                dir.mkdirs();
 //            }
-//            dir = new File(pathsearchtxt);
-//            if (!dir.exists()) {
-//                dir.mkdirs();
-//            }
+            dir = new File(pathsearchtxt);
+            if (!dir.exists()) {
+                dir.mkdirs();
+            }
             dir = new File(pathCacheBanner);
             if (!dir.exists()) {
                 dir.mkdirs();

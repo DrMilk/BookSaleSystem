@@ -25,6 +25,7 @@ import cn.bmob.v3.BmobUser;
  */
 
 public class SettingActivity extends Activity implements View.OnClickListener{
+    private String TAG="SettingActivity";
     private TextView text_logou;
     private TextView text_checkout;
     private TextView text_share;
