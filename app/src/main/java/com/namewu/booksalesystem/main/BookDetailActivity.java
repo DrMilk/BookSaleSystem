@@ -168,27 +168,71 @@ public class BookDetailActivity extends Activity implements View.OnClickListener
                         e.printStackTrace();
                     }
                 }
-                try {
-                    FileInputStream fis=new FileInputStream(file);
-                    ObjectInputStream ois=new ObjectInputStream(fis);
-                    list_read= (ArrayList<String>) ois.readObject();
-                    ois.close();
-                    fis.close();
-                    if(list_read==null||list_read.size()==0){
-                        list_read=new ArrayList<String>();
+                    if(file.length()!=0){
+                        FileInputStream fis = null;
+                        try {
+                            fis = new FileInputStream(file);
+                        } catch (FileNotFoundException e) {
+                            L.i(TAG,"fis");
+                            e.printStackTrace();
+                        }
+                        ObjectInputStream ois = null;
+                        try {
+                            ois = new ObjectInputStream(fis);
+                        } catch (IOException e) {
+                            L.i(TAG,"ois");
+                            e.printStackTrace();
+                        }
+                        try {
+                            list_read = (ArrayList<String>) ois.readObject();
+                        } catch (ClassNotFoundException e) {
+                            L.i(TAG,"oois");
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            L.i(TAG,"ooois");
+                            e.printStackTrace();
+                        }
+                        try {
+                            ois.close();
+                        } catch (IOException e) {
+                            L.i(TAG,"ois");
+                            e.printStackTrace();
+                        }
+                        try {
+                            fis.close();
+                        } catch (IOException e) {
+                            L.i(TAG,"ois");
+                            e.printStackTrace();
+                        }
                     }
-                    list_read.add(id);
-                    L.i(TAG,id);
-                    L.i(TAG,list_read.size()+"");
-                    FileOutputStream fos=new FileOutputStream(file);
-                    ObjectOutputStream oos=new ObjectOutputStream(fos);
-                    oos.writeObject(list_read);
-                    oos.flush();
-                    oos.close();
-                    fos.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    L.i(TAG,e.toString());
+                if (list_read == null || list_read.size() == 0) {
+                    L.i(TAG,"efef");
+                    list_read = new ArrayList<String>();
+                }
+                boolean same=true;
+                for(int q=0;q<list_read.size();q++){
+                    if(list_read.get(q).equals(id)){
+                        same=false;
+                    }
+                }
+                if(same){
+                    try {
+                        list_read.add(id);
+                        L.i(TAG,id);
+                        L.i(TAG,list_read.size()+"");
+                        FileOutputStream fos=new FileOutputStream(file);
+                        ObjectOutputStream oos=new ObjectOutputStream(fos);
+                        oos.writeObject(list_read);
+                        oos.flush();
+                        oos.close();
+                        fos.close();
+                        T.showShot(mcontext,"加入购物车成功");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        L.i(TAG,e.toString());
+                    }
+                }else {
+                    T.showShot(mcontext,"购物车中已经有该图书~");
                 }
             }
         });
