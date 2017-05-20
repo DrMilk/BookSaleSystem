@@ -14,6 +14,7 @@ import com.namewu.booksalesystem.R;
  */
 
 public class WuProcessDialogSecond extends Dialog{
+    private String TAG="WuProcessDialogSecond";
     private AnimationDrawable anim_process;
     private ImageView anim_img;
     @Override
