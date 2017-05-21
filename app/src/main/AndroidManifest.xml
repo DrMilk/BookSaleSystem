@@ -55,6 +55,8 @@
         <activity android:name=".mine.SettingActivity"/>
         <activity android:name=".talk.Writetreememory"/>
         <activity android:name=".main.BookDetailActivity"/>
+        <activity android:name=".mine.ChangePasswordActivity"/>
+        <activity android:name=".mine.PersonaldActivity"/>
     </application>
 
 </manifest>

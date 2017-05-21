@@ -17,35 +17,90 @@
             android:theme="@style/title_font" />
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/mine_location"
-        android:layout_marginLeft="10dp"
+    <LinearLayout
+        android:background="@color/context_text"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:gravity="center_vertical"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:text="我的位置"/>
-
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/gray"/>
-
-        <TextView
-            android:id="@+id/mine_weather"
-            android:layout_marginLeft="10dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="bottom"
+        android:padding="20dp">
+        <RelativeLayout
+            android:layout_width="73dp"
+            android:layout_height="73dp"
+            android:layout_gravity="center"
+            android:background="@drawable/tab_main_head">
+            <ImageView
+                android:id="@+id/maintab_imghead"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:src="@mipmap/ohi"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:gravity="center_vertical"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:text="天气查询"/>
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/gray"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="4dp">
+            <TextView
+                android:id="@+id/maintab_name"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="牛奶博士aa"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:theme="@style/textshadowColor"
+                />
+            <ImageView
+                android:id="@+id/maintab_sex"
+                android:layout_toRightOf="@id/maintab_name"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/userinfo_icon_male"
+                android:layout_marginLeft="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+                <TextView
+                    android:layout_marginRight="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="关注"
+                    android:textSize="12sp"
+                    android:textColor="@color/white_smoke"
+                    android:theme="@style/textshadowColor"/>
+                <TextView
+                    android:id="@+id/maintab_mblog"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="100"
+                    android:textSize="12sp"
+                    android:textColor="@color/white_smoke"
+                    android:theme="@style/textshadowColor"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/maintab_descripition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="简介:不喝牛奶不睡觉"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                android:theme="@style/textshadowColor"/>
+        </LinearLayout>
+    </LinearLayout>
     <TextView
         android:id="@+id/mine_personal"
         android:layout_marginLeft="10dp"

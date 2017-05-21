@@ -76,7 +76,7 @@ public class ShoppingCarFragment extends Fragment implements View.OnClickListene
                         listcheck.set(i,false);
                     }
                     text_num.setText("("+paycount+")");
-                    allmoney.setText("0");
+                    allmoney.setText("￥ "+"0.00");
                 }else {
                     all_status=true;
                     imgpaycheck.setImageResource(R.mipmap.pay_and_delivery_fast_checked);
@@ -90,7 +90,7 @@ public class ShoppingCarFragment extends Fragment implements View.OnClickListene
                             allm=allm+buycarlistAdapter.getListnum().get(i)*listdata.get(i).getPrice();
                         L.i(TAG,"allm"+allm);
                     }
-                    allmoney.setText(allm+"");
+                    allmoney.setText("￥ "+allm+".00");
                     text_num.setText("("+paycount+")");
                 }
                 buycarlistAdapter.notifyDataSetChanged();break;
@@ -207,7 +207,7 @@ public class ShoppingCarFragment extends Fragment implements View.OnClickListene
                             }
                             L.i(TAG,"allm"+allm);
                         }
-                        allmoney.setText(allm+"");
+                        allmoney.setText("￥ "+allm+".00");
                         text_num.setText("("+paycount+")");
                     }
                 });
@@ -222,9 +222,9 @@ public class ShoppingCarFragment extends Fragment implements View.OnClickListene
                         L.i(TAG,"allm"+allm);
                     }
                     text_num.setText("("+paycount+")");
-                    allmoney.setText(allm+"");
+                    allmoney.setText("￥ "+allm+".00");
                 }else {
-                    allmoney.setText("0");
+                    allmoney.setText("￥ "+"0.00");
                     text_num.setText("("+paycount+")");
                 }
             }

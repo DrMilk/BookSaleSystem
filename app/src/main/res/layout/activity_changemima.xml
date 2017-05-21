@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:elevation="6dp"
+        android:background="@color/gold_yellow">
+        <TextView
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="修改密码"
+            android:layout_gravity="center"
+            android:theme="@style/title_font" />
+    </RelativeLayout>
+    <LinearLayout
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:theme="@style/style_about"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="用户:"/>
+            <TextView
+                android:paddingLeft="10dp"
+                android:id="@+id/changemima_user"
+                android:theme="@style/style_about"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="无"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:theme="@style/style_about"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="原始密码:"/>
+            <EditText
+                android:inputType="textPassword"
+                android:id="@+id/changemima_nowpassword"
+                android:lines="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:theme="@style/style_about"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="新密码:  "/>
+            <EditText
+                android:inputType="textPassword"
+                android:id="@+id/changemima_newpassword"
+                android:lines="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:theme="@style/style_about"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="密码重复:"/>
+            <EditText
+                android:id="@+id/changemima_newpassword_again"
+                android:inputType="textPassword"
+                android:lines="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <Button
+                android:id="@+id/button_back"
+                android:background="@drawable/button_bg_red"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:textColor="@color/white_smoke"
+                android:text="  返回  "/>
+            <Button
+                android:id="@+id/button_ok"
+                android:layout_marginLeft="28dp"
+                android:background="@drawable/button_bg_green"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:textColor="@color/white_smoke"
+                android:text="  提交  "/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

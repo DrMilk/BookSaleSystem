@@ -51,6 +51,7 @@ public class FirstTabFragment extends Fragment{
     private BookListAdatapter spotListAdatapter;
     private ArrayList<Bookdata> sv_all=new ArrayList<>();
     private ArrayList<Bookdata> sv_limit=new ArrayList<>();
+    private SearchView searchView;
     private Handler handler=new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -151,6 +152,40 @@ public class FirstTabFragment extends Fragment{
         View view=inflater.inflate(R.layout.activity_spot,null);
         banner_viewPager= (ViewPager) view.findViewById(R.id.main_banner_viewpager);
         ll= (LinearLayout) view.findViewById(R.id.main_banner_linear_point);
+        searchView= (SearchView) view.findViewById(R.id.search_view);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                if(query.length()!=0){
+                    L.i(TAG,"我要搜索"+query);
+                    BmobQuery<Bookdata> query1 = new BmobQuery<Bookdata>();
+                    query1.addWhereEqualTo("title",query);
+                    query1.setLimit(10);
+                    query1.findObjects(new FindListener<Bookdata>() {
+                        @Override
+                        public void done(List<Bookdata> list, BmobException e) {
+                            Intent it=new Intent(getActivity(),BookDetailActivity.class);
+                            Bundle bundle=new Bundle();
+                            bundle.putString("title",list.get(0).getTitle());
+                            bundle.putString("context",list.get(0).getContext());
+                            bundle.putString("price",list.get(0).getPrice()+"");
+                            bundle.putString("id",list.get(0).getObjectId());
+                            bundle.putStringArrayList("remarklist",list.get(0).getList_remarkd());
+                            it.putExtras(bundle);
+                            getActivity().startActivity(it);
+                        }
+                    });
+                }
+                L.i(TAG,"搜索");
+                //   updataviewlimit(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
         listview_spot= (ListView) view.findViewById(R.id.activity_spot_listview);
         list_banner=new ArrayList<>();
         ImageView img1=new ImageView(mcontext);

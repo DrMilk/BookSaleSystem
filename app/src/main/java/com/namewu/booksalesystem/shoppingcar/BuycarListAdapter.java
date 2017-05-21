@@ -66,18 +66,20 @@ public class BuycarListAdapter extends BaseAdapter {
             myViewHolder.img_check= (ImageView) convertView.findViewById(R.id.listitem_buycar_check);
             myViewHolder.img_add= (ImageView) convertView.findViewById(R.id.listitem_buycar_add);
             myViewHolder.img_reduce= (ImageView) convertView.findViewById(R.id.listitem_buycar_reduce);
+            myViewHolder.text_context= (TextView) convertView.findViewById(R.id.listitem_buycar_context);
             convertView.setTag(myViewHolder);
         }else {
             myViewHolder= (MyViewHolder) convertView.getTag();
         }
         myViewHolder.text_title.setText(listdata.get(position).getTitle());
-        myViewHolder.text_price.setText("￥ "+listdata.get(position).getPrice()+"");
+        myViewHolder.text_price.setText("￥ "+listdata.get(position).getPrice()+".00");
         myViewHolder.text_num.setText(listnum.get(position)+"");
+        myViewHolder.text_context.setText(listdata.get(position).getContext());
         if(listcheck.get(position)){
            int price=listdata.get(position).getPrice()*listnum.get(position);
-            myViewHolder.text_smallmoney.setText("￥ "+price+"");
+            myViewHolder.text_smallmoney.setText("￥ "+price+".00");
         }else {
-            myViewHolder.text_smallmoney.setText("￥ "+0);
+            myViewHolder.text_smallmoney.setText("￥ "+0+".00");
         }
 
         myViewHolder.num=position;
@@ -133,14 +135,15 @@ public class BuycarListAdapter extends BaseAdapter {
     }
 
      class MyViewHolder{
-        private ImageView img_check;
-        private ImageView img_show;
-        private ImageView img_add;
-        private ImageView img_reduce;
-        private TextView text_num;
-        private TextView text_title;
-        private TextView text_price;
-        private TextView text_smallmoney;
-        private Integer num;
+         private ImageView img_check;
+         private ImageView img_show;
+         private ImageView img_add;
+         private ImageView img_reduce;
+         private TextView text_num;
+         private TextView text_title;
+         private TextView text_price;
+         private TextView text_smallmoney;
+         private TextView text_context;
+         private Integer num;
      }
 }
