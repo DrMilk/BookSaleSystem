@@ -59,7 +59,7 @@
             android:layout_centerVertical="true"
             android:textColor="@color/white_smoke"
             android:textStyle="italic"
-            android:text="￥34.50"/>
+            android:text="￥0.00"/>
         <RelativeLayout
             android:layout_alignParentRight="true"
             android:layout_width="80dp"
