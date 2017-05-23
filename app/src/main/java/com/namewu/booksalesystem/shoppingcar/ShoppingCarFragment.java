@@ -1,6 +1,7 @@
 package com.namewu.booksalesystem.shoppingcar;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -60,6 +61,7 @@ public class ShoppingCarFragment extends Fragment implements View.OnClickListene
         imgpaycheck= (ImageView) view.findViewById(R.id.fragment_shop_allcheck);
         text_num= (TextView) view.findViewById(R.id.fragment_shop_paynum);
         imgpaycheck.setOnClickListener(this);
+        textallpay.setOnClickListener(this);
         listdata=new ArrayList<>();
     }
 
@@ -94,6 +96,37 @@ public class ShoppingCarFragment extends Fragment implements View.OnClickListene
                     text_num.setText("("+paycount+")");
                 }
                 buycarlistAdapter.notifyDataSetChanged();break;
+            case R.id.fragment_shop_pay:
+                Intent it=new Intent(getActivity(),OrderBuy.class);
+                ArrayList<Boolean> data_check=buycarlistAdapter.getListcheck();
+                ArrayList<String> data_address=new ArrayList<>();
+                ArrayList<String> data_name=new ArrayList<>();
+                ArrayList<Integer> data_countold=buycarlistAdapter.getListnum();
+                ArrayList<Integer> data_count=new ArrayList<>();
+                ArrayList<Integer> data_price=new ArrayList<>();
+                Bundle bundle=new Bundle();
+                for(int i=0;i<listdata.size();i++){
+                    if(data_check.get(i)){
+                        data_address.add(listdata.get(i).getObjectId());
+                        data_name.add(listdata.get(i).getTitle());
+                        data_price.add(listdata.get(i).getPrice());
+                        data_count.add(data_countold.get(i));
+                    }
+                }
+                bundle.putStringArrayList("name",data_name);
+                bundle.putIntegerArrayList("price",data_price);
+                bundle.putIntegerArrayList("count",data_count);
+                bundle.putStringArrayList("address",data_address);
+                int allm=0;
+                for(int i=0;i<listdata.size();i++){
+                    if(buycarlistAdapter.getListcheck().get(i)){
+                        allm=allm+buycarlistAdapter.getListnum().get(i)*listdata.get(i).getPrice();
+                    }
+                    L.i(TAG,"allm"+allm);
+                }
+                bundle.putInt("allmoney",allm);
+                it.putExtras(bundle);
+                startActivity(it);break;
         }
     }
 

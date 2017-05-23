@@ -57,6 +57,7 @@
         <activity android:name=".main.BookDetailActivity"/>
         <activity android:name=".mine.ChangePasswordActivity"/>
         <activity android:name=".mine.PersonaldActivity"/>
+        <activity android:name=".shoppingcar.OrderBuy"/>
     </application>
 
 </manifest>
