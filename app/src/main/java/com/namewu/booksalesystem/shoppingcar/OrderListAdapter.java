@@ -69,9 +69,9 @@ public class OrderListAdapter extends BaseAdapter {
             myViewHolder= (MyViewHolder) convertView.getTag();
         }
         myViewHolder.text_name.setText(data_name.get(position));
-        myViewHolder.text_price.setText(data_preice.get(position)+"");
+        myViewHolder.text_price.setText(data_preice.get(position)+".00");
         myViewHolder.text_count.setText(data_count.get(position).toString());
-        myViewHolder.text_money.setText(data_smallall.get(position).toString());
+        myViewHolder.text_money.setText(data_smallall.get(position).toString()+".00");
         return convertView;
     }
 
