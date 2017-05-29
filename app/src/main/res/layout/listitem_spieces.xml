@@ -9,6 +9,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center"
-    android:background="@color/gold_yellow"
-    android:text="第一类图书"/>
+    android:textSize="12sp"
+    android:textColor="@color/black" />
 </LinearLayout>

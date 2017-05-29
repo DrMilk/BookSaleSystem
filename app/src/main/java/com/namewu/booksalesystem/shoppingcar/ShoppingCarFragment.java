@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.namewu.booksalesystem.R;
 import com.namewu.booksalesystem.Utils.L;
 import com.namewu.booksalesystem.Utils.MySdcard;
+import com.namewu.booksalesystem.Utils.T;
 import com.namewu.booksalesystem.onlinedata.Bookdata;
 
 import java.io.File;
@@ -43,6 +44,7 @@ public class ShoppingCarFragment extends Fragment implements View.OnClickListene
     private Boolean all_status=true;
     private TextView text_num;
     private ArrayList<String> list_address;
+    private TextView text_clear;
     private Handler handle=new Handler(){
     };
     @Nullable
@@ -60,8 +62,10 @@ public class ShoppingCarFragment extends Fragment implements View.OnClickListene
         textallpay= (TextView) view.findViewById(R.id.fragment_shop_pay);
         imgpaycheck= (ImageView) view.findViewById(R.id.fragment_shop_allcheck);
         text_num= (TextView) view.findViewById(R.id.fragment_shop_paynum);
+        text_clear=(TextView) view.findViewById(R.id.fragment_shop_clear);
         imgpaycheck.setOnClickListener(this);
         textallpay.setOnClickListener(this);
+        text_clear.setOnClickListener(this);
         listdata=new ArrayList<>();
     }
 
@@ -127,6 +131,17 @@ public class ShoppingCarFragment extends Fragment implements View.OnClickListene
                 bundle.putInt("allmoney",allm);
                 it.putExtras(bundle);
                 startActivity(it);break;
+            case R.id.fragment_shop_clear:
+                File file=new File(MySdcard.pathsearchtxt+File.separator+"shop.txt");
+                if(file.exists()){
+                    try {
+                        file.delete();
+                        file.createNewFile();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                T.showShot(getActivity(),"清空完毕！刷新重试");break;
         }
     }
 
@@ -201,6 +216,11 @@ public class ShoppingCarFragment extends Fragment implements View.OnClickListene
                 }
             });
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 
     private void updataview() {

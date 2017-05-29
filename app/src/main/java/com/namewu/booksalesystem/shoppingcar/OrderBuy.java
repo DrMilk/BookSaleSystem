@@ -198,7 +198,7 @@ public class OrderBuy extends Activity implements View.OnClickListener{
                 for(int i=0;i<data_name.size();i++){
                     StringBuffer sb=new StringBuffer(data_name.get(i));
                     sb.append("*"+data_preice.get(i)).append("*"+data_count.get(i))
-                    .append("*"+data_count.get(i)).append("*"+data_address.get(i));
+                   .append("*"+data_address.get(i));
                     order_book.add(sb.toString());
                 }
                 if(StringLegalUtil.isHaveLength(name)&&StringLegalUtil.isHaveLength(address)

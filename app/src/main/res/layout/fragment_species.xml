@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@mipmap/bg_guid3">
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="50dp"
@@ -24,10 +25,14 @@
         <ListView
             android:id="@+id/species_listview"
             android:layout_width="100dp"
+            android:alpha="0.8"
+            android:divider="@null"
+            android:background="@color/black_alpha5"
             android:layout_height="match_parent"/>
         <GridView
             android:id="@+id/species_gridview"
             android:numColumns="2"
+            android:alpha="0.8"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     </LinearLayout>

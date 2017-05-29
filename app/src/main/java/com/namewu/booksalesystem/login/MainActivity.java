@@ -183,7 +183,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     bundle.putStringArrayList("data", alldata.getList_talk());
                     fragment_talk.setArguments(bundle);
                     fragment_species=new KindFragment();
-                    fragment_shop=new ShoppingCarFragment();
 //                    fragment_food = new FoodFragment();
 //                    bundle = new Bundle();
 //                    bundle.putStringArrayList("data", alldata.getList_food());
@@ -269,6 +268,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 initBottomView();
                 img4.setImageTintList( getResources().getColorStateList(R.color.gold_yellow));
                 img4.setImageResource(R.mipmap.main_bottom_tab_cart_focus);
+                fragment_shop=new ShoppingCarFragment();
                 ft = fm.beginTransaction();
                 tab_num = 3;
                 if (fragment_shop != null) {
