@@ -171,7 +171,7 @@ public class SignActivity extends Activity implements View.OnClickListener{
                     if(e==null){
                         T.showShot(mcontext,"注册成功！");
                         L.i(TAG,"注册成功！");
-                        if(myUpload.goUpload("wangweibodata","headimg/"+str_phonenum,mysdcard.getPathheadimg()+File.separator+imgstr)){
+                        if(myUpload.goUpload("booksalesystem","headimg/"+str_phonenum,mysdcard.getPathheadimg()+File.separator+imgstr)){
                             xu_dialog.dismiss();
                         }
                     }else {

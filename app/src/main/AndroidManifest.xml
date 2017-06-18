@@ -36,7 +36,7 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -58,6 +58,10 @@
         <activity android:name=".mine.ChangePasswordActivity"/>
         <activity android:name=".mine.PersonaldActivity"/>
         <activity android:name=".shoppingcar.OrderBuy"/>
+        <activity android:name=".species.BookListActivity"/>
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="f6cfbfeb09928ea60201ccd83d2ac5a6"/>
     </application>
 
 </manifest>

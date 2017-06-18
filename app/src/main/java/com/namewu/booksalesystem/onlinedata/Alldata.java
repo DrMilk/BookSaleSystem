@@ -1,5 +1,6 @@
 package com.namewu.booksalesystem.onlinedata;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import cn.bmob.v3.BmobObject;
@@ -8,7 +9,7 @@ import cn.bmob.v3.BmobObject;
  * Created by Administrator on 2017/3/20.
  */
 
-public class Alldata extends BmobObject {
+public class Alldata extends BmobObject implements Serializable{
     private ArrayList<String> list_book;
     private ArrayList<String> list_talk;
     public Alldata(){}

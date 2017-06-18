@@ -287,7 +287,7 @@ public class Writetreememory extends Activity {
                         other_jundge1=1;
                         myPicUpload(s.toString());
                         otherupdata(id,context_id_str[0]);
-                        Log.i(MyTAG,"上传文章成功"+s.toString());
+                        Log.i(MyTAG,"上传文章成功,等待审核中"+s.toString());
                     }else{
                         other_jundge=2;
                         mine_jundge=2;

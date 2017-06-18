@@ -26,8 +26,10 @@ public class BuycarListAdapter extends BaseAdapter {
     private LayoutInflater inflater;
     private MyUpload myUpload;
     private View.OnClickListener listener;
+    private Context mcontext;
     public BuycarListAdapter(Context context, ArrayList<Bookdata> listdata){
         this.listdata=listdata;
+        mcontext=context;
         inflater=LayoutInflater.from(context);
         myUpload=new MyUpload(context);
         listcheck=new ArrayList<>();

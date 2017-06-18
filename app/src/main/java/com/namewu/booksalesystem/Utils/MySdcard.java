@@ -33,10 +33,10 @@ public  class MySdcard {
     public boolean initWuSdcard(Context context){
       //  if (!SharePreferenceUtil.getSettingDataBoolean(context,SharePreferenceUtil.INITSDCARD_KEY)) {
             File dir;
-//            dir = new File(pathheadimg);
-//            if (!dir.exists()) {
-//                dir.mkdirs();
-//            }
+            dir = new File(pathheadimg);
+            if (!dir.exists()) {
+                dir.mkdirs();
+            }
             dir = new File(pathsearchtxt);
             if (!dir.exists()) {
                 dir.mkdirs();

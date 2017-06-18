@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:elevation="5dp"
+        android:background="@color/gold_yellow">
+        <TextView
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="图书馆"
+            android:theme="@style/title_font"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:paddingTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="74dp">
+        <SearchView
+            android:id="@+id/search_view"
+            android:layout_width="match_parent"
+            android:paddingRight="20dp"
+            android:layout_height="wrap_content"
+            android:iconifiedByDefault="false"
+            android:imeOptions="actionSearch"
+            android:queryHint="搜索" />
+    </LinearLayout>
+        <!--<SearchView-->
+        <!--android:id="@+id/search_view"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:paddingRight="20dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:iconifiedByDefault="false"-->
+        <!--android:imeOptions="actionSearch"-->
+        <!--android:queryHint="搜索" />-->
+    <ListView
+        android:id="@+id/activity_spot_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@null">
+    </ListView>
+</LinearLayout>

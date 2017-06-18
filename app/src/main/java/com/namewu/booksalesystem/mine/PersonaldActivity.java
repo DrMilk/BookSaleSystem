@@ -148,8 +148,10 @@ public class PersonaldActivity extends Activity implements View.OnClickListener 
         if (namenew!=null)
         if (!namenew.equals(name))
             xuuser.setName(namenew);
-        if (!email.equals(emailnew))
-            xuuser.setEmail(emailnew);
+        if(email!=null&&emailnew!=null){
+            if (!email.equals(emailnew))
+                xuuser.setEmail(emailnew);
+        }
         xuuser.update(xuuser.getObjectId(), new UpdateListener() {
             @Override
             public void done(BmobException e) {
@@ -157,7 +159,7 @@ public class PersonaldActivity extends Activity implements View.OnClickListener 
                     T.showShot(mcontext, "更改成功！");
                     if(imgheadstutus){
                         L.i(TAG,"headimg/"+xuuser.getUsername()+"----"+mySdcard.getPathheadimg()+imgstr);
-                        if(myUpload.goUpload("wangweibodata","headimg/"+xuuser.getUsername(),mySdcard.getPathheadimg()+File.separator+imgstr)){
+                        if(myUpload.goUpload("booksalesystem","headimg/"+xuuser.getUsername(),mySdcard.getPathheadimg()+File.separator+imgstr)){
                             xuprocessdialog.dismiss();
                         }
                         xuprocessdialog.dismiss();

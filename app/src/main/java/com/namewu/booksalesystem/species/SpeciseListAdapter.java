@@ -48,8 +48,9 @@ public class SpeciseListAdapter extends BaseAdapter{
             convertView.setTag(viewHolder);
         }else {
             viewHolder= (MyViewHolder) convertView.getTag();
-            viewHolder.textView.setText(list_data.get(position));
         }
+        viewHolder.textView.setText(list_data.get(position));
+        convertView.setBackgroundResource(R.color.black_alpha2);
         return convertView;
     }
     private class MyViewHolder{

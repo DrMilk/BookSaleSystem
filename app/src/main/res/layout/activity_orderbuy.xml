@@ -32,13 +32,9 @@
             android:theme="@style/bottom_titil_font"
             android:text="提交"/>
     </RelativeLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@mipmap/bg_homemoviea"
             android:orientation="vertical"
             android:padding="30dp">
@@ -179,5 +175,4 @@
                     android:text="￥ 200.00"/>
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
 </LinearLayout>

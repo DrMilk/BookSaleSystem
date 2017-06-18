@@ -1,6 +1,7 @@
 package com.namewu.booksalesystem.species;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -27,6 +28,7 @@ public class KindFragment extends Fragment{
     private ArrayList<Integer[]> list_two_img;
     private SpeciseListAdapter listadapter;
     private SpeciseGridAdapter gridadapter;
+    private int listview_status_count=1;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -43,9 +45,18 @@ public class KindFragment extends Fragment{
         gridadapter=new SpeciseGridAdapter(getActivity(),list_two.get(0),list_two_img.get(0));
         gridView.setAdapter(gridadapter);
         listView.setAdapter(listadapter);
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent it=new Intent(getActivity(),BookListActivity.class);
+                it.putExtra("spiecse",listview_status_count*10+position+1);
+                startActivity(it);
+            }
+        });
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                listview_status_count=position+1;
                 gridadapter.setList_data(list_two.get(position));
                 gridadapter.setList_img(list_two_img.get(position));
                 gridadapter.notifyDataSetChanged();
