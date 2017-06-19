@@ -22,7 +22,12 @@ import com.namewu.booksalesystem.Utils.L;
 import com.namewu.booksalesystem.main.WangContextRecyclerViewAdapter;
 import com.namewu.booksalesystem.onlinedata.Talkdata;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 import cn.bmob.v3.BmobQuery;
@@ -77,13 +82,41 @@ public class TalkFragment extends Fragment{
         }
         super.onCreate(savedInstanceState);
     }
-
+    private boolean updataContext() {
+        final SimpleDateFormat sdf=new SimpleDateFormat("yy-MM-dd HH:mm:ss");
+        final Date[] data1 = {null};
+        final Date[] data2 = {null};
+//        for (int i=0;i<list_remark.size();i++){
+//            Log.i(TAG,list_remark.get(i).getCreatedAt()+"日期");
+//        }
+        Comparator<Talkdata> comparator = new Comparator<Talkdata>(){
+            public int compare(Talkdata s1, Talkdata s2) {
+                //排序日期
+                try {
+                    data1[0] =sdf.parse(s1.getCreatedAt());
+                    data2[0] =sdf.parse(s2.getCreatedAt());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                if(data1[0].getTime()> data2[0].getTime()){
+                    return -1;
+                }else {
+                    return 1;
+                }
+            }
+        };
+        if(list_hotel.size()>1){
+            Collections.sort(list_hotel,comparator);
+        }
+        return true;
+    }
     private void updataview() {
         if(list_hotel.size()==list_str.size()){
             handler.post(new Runnable() {
                 @Override
                 public void run() {
                     L.i(TAG,"Gengxinle");
+                    updataContext();
                     mcontextAdapter.notifyDataSetChanged();
                 }
             });
